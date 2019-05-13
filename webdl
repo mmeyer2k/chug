@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+$t = time();
+$d = getcwd();
+$scrubbed = preg_replace("/[^A-Za-z0-9 ]/", '', $argv[1]);
+
+`mkdir /tmp/$scrubbed`;
+`cd /tmp/$scrubbed ; wget --recursive --html-extension --convert-links --restrict-file-names=windows --no-parent --no-directories --level=1 --span-hosts $argv[1]`;
+`7z a -mx9 /tmp/$scrubbed.$time.7z /tmp/$scrubbed/*`;
+`rm -rfv /tmp/$scrubbed`;
+`mv /tmp/$scrubbed.$time.7z $d`;
