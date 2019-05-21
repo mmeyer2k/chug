@@ -3,7 +3,8 @@
 
 $t = time();
 $d = getcwd();
-$scrubbed = preg_replace("/[^A-Za-z0-9 ]/", '', $argv[1]);
+$scrubbed = preg_replace("/[^A-Za-z0-9.]/", '', $argv[1]);
+$time = date('Ymdhis');
 
 `mkdir /tmp/$scrubbed`;
 `cd /tmp/$scrubbed ; wget --recursive --html-extension --convert-links --restrict-file-names=windows --no-parent --no-directories --level=1 --span-hosts $argv[1]`;
