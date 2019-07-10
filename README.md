@@ -1,7 +1,15 @@
 # :arrow_double_down: http2zip
 
-Archive webpages for posterity from the command line.
+A deceptively simple tool for archiving webpages from the command line.
 
 ## Install http2zip
 
+```bash
+composer install -g mmeyer2k/webdl
+```
+
 ## Usage
+
+```bash
+
+```
