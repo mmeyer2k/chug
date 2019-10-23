@@ -1,15 +1,9 @@
-# :arrow_double_down: http2zip
+# :arrow_double_down: chug
 
-A deceptively simple tool for archiving webpages from the command line.
+A docker image for turning web pages into zip files.
 
-## Install http2zip
-
-```bash
-composer install -g mmeyer2k/webdl
-```
-
-## Usage
+## Chugging a webpage
 
 ```bash
-
+docker run mmeyer2k/chug
 ```
