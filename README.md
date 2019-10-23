@@ -10,5 +10,5 @@ docker run -v /`pwd`:/data mmeyer2k/chug http://asdf.com
 
 ## Adding a bash alias
 ```
-alias chug=""
+alias chug='docker run -v /path/to/storage:/data mmeyer2k/chug'
 ```

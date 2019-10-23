@@ -4,15 +4,11 @@
 ## @todo: show a help screen...?
 ## @todo: show a splash screen
 
-ls -lah /data
-
 figlet chug
 
 echo Downloading: $1
 
 PROCURL=$(echo $1 | sed -e "s/^https//" | sed -e "s/^http//" | tr -cd '[:alnum:]._-')
-
-echo Making temp directory: /tmp/$PROCURL
 
 mkdir /tmp/$PROCURL
 
