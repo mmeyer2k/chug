@@ -8,11 +8,15 @@ figlet chug
 
 echo Downloading: $1
 
-PROCURL=$(echo $1 | sed -e "s/^https//" | sed -e "s/^http//" | tr -cd '[:alnum:]._-')
+T=$(date +%s)
+
+PROCURL=$(echo $1 | sed -e "s|^https://||" | sed -e "s|^http://||" | sed -e "s|/|.|g" | tr -cd '[:alnum:]._-')
 
 mkdir /tmp/$PROCURL
 
 cd /tmp/$PROCURL
+
+echo $t > .chug.timestamp
 
 wget --recursive --html-extension --convert-links --restrict-file-names=windows --no-directories --no-parent --level=1 --span-hosts --tries=5 --timeout=5 ${1}
 
