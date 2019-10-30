@@ -20,6 +20,6 @@ echo $t > .chug.timestamp
 
 wget --recursive --html-extension --convert-links --restrict-file-names=windows --no-directories --no-parent --level=1 --span-hosts --tries=5 --timeout=5 ${1}
 
-7z a -mx9 /tmp/$PROCURL.7z /tmp/$PROCURL/*
+7z a -mx9 /tmp/$PROCURL.7z /tmp/$PROCURL
 
 mv -fv /tmp/$PROCURL.7z /data
