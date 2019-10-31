@@ -1,4 +1,4 @@
-# :arrow_double_down: chug
+# chug
 
 A docker image for turning web pages into zip files.
 
