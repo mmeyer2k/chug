@@ -16,7 +16,7 @@ mkdir /tmp/$PROCURL
 
 cd /tmp/$PROCURL
 
-echo $t > .chug.timestamp
+echo $t > .timestamp
 
 wget --recursive --html-extension --convert-links --restrict-file-names=windows --no-directories --no-parent --level=1 --span-hosts --tries=5 --timeout=5 ${1}
 
