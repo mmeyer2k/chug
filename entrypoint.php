@@ -12,7 +12,7 @@ $dirname = str_replace(['https://', 'https://', '/'], ['', '', '.'], $target);
 
 shell_exec("mkdir /tmp/$dirname");
 
-shell_exec("cd /tmp/$dirname ; wget --recursive --html-extension --convert-links --restrict-file-names=windows --no-directories --no-parent --level=1 --span-hosts --tries=5 --timeout=5 $target");
+shell_exec("cd /tmp/$dirname ; wget --recursive --html-extension --convert-links --restrict-file-names=windows --no-directories --no-parent --level=1 --span-hosts --tries=2 --timeout=5 $target");
 
 file_put_contents("/tmp/$dirname/.timestamp", timestamp());
 
