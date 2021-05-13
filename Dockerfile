@@ -1,9 +1,9 @@
-FROM alpine:3.9
+FROM php:8-alpine
 
 ENV TERM xterm-256color
 
-RUN apk add --no-cache p7zip wget figlet
+RUN apk add --no-cache p7zip wget 
 
-COPY entrypoint.sh /etc/entrypoint.sh
+COPY entrypoint.php /etc/entrypoint.php
 
-ENTRYPOINT ["sh", "/etc/entrypoint.sh"]
+ENTRYPOINT ["php", "/etc/entrypoint.php"]

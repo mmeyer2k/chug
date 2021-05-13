@@ -1,13 +1,18 @@
 # chug
 
-A docker image for turning web pages into 7zip files.
+A docker image for archiving webpages with wget.
 
 ## Adding a bash alias
 ```
 alias chug='docker run --rm -v "$(pwd)":/data mmeyer2k/chug'
 ```
 
-## Using chug
+## Using chug (basic)
 ```bash
 chug http://www.example.com
+```
+
+## Output to 7zip file
+```bash
+chug --zip http://www.example.com
 ```
