@@ -8,12 +8,22 @@ function timestamp(): string
 // Get last argument which should always be the target URL
 $target = $argv[$argc - 1];
 
+// Remove https:// and http:// then convert / to .
 $dirname = str_replace(['https://', 'https://', '/'], ['', '', '.'], $target);
 
+// Trim out trailing dot which can not be valid file name
+$dirname = trim($dirname, '.');
+
+// Create the directory to store the wget output
 shell_exec("mkdir /tmp/$dirname");
 
-shell_exec("cd /tmp/$dirname ; wget --recursive --html-extension --convert-links --restrict-file-names=windows --no-directories --no-parent --level=1 --span-hosts --tries=2 --timeout=5 $target");
+// Escape the target to prevent injecting the wget call (paranoid?)
+$escTarget = escapeshellarg($target);
 
+// Run wget in tmp directory
+shell_exec("cd /tmp/$dirname ; wget --recursive --html-extension --convert-links --restrict-file-names=windows --no-directories --no-parent --level=1 --span-hosts --tries=2 --timeout=5 $escTarget");
+
+// Save a timestamp into the a hidden file
 file_put_contents("/tmp/$dirname/.timestamp", timestamp());
 
 if (in_array('--zip', $argv)) {
@@ -23,7 +33,11 @@ if (in_array('--zip', $argv)) {
     shell_exec("mv -f /tmp/$dirname /data");
 }
 
-$green = "\e[0;32m";
-$yellow = "\e[1;33m";
+// Define bash color escape sequences
+$green = "\e[1;32m";
+$yellow = "\e[0;33m";
 
-echo "{$green}Done chugging: {$yellow}$target\n";
+// Print out status bar
+echo "{$green}🍺🍺\n";
+echo "{$green}🍺🍺 Chug complete: {$yellow}$target\n";
+echo "{$green}🍺🍺\n";
