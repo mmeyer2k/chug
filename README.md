@@ -4,7 +4,7 @@ A docker image for archiving webpages with wget.
 
 ## Adding a bash alias
 ```
-alias chug='docker run --rm -u $(id -u ${USER}):$(id -g ${USER}) -v "$(pwd)":/data mmeyer2k/chug'
+alias chug='docker run --rm -u $(id -u):$(id -g) -v "$(pwd)":/data mmeyer2k/chug'
 ```
 
 ## Using chug (basic)
